@@ -24,7 +24,7 @@ public class ImageDetection {
     public String image() throws IOException {
         return chatClient.prompt()
                 .user(u -> u
-                        .text("Can you please explain what you see in the following image?")
+                        .text("다음 이미지에서 보이는 것이 무엇인지 설명해 주시겠습니까?")
                         .media(MimeTypeUtils.IMAGE_JPEG,sampleImage)
                 )
                 .call()

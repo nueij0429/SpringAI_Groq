@@ -15,10 +15,10 @@ import org.springframework.core.env.Environment;
   : Chat은 OllamaChatAutoConfiguration 사용하지 않음, 대신 OpenAiChatAutoConfiguration 사용함
   : Embedding은 OpenAiEmbeddingAutoConfiguration  사용하지 않음, 대신 OllamaEmbeddingAutoConfiguration 사용함
 */
-@SpringBootApplication(exclude = {
-		OllamaChatAutoConfiguration.class,
-		OpenAiEmbeddingAutoConfiguration.class
-})
+//@SpringBootApplication(exclude = {
+//		OllamaChatAutoConfiguration.class,
+//		OpenAiEmbeddingAutoConfiguration.class
+//})
 
 /*
   ChatGPT 유료 Model을 사용할때
@@ -26,10 +26,10 @@ import org.springframework.core.env.Environment;
   : Embedding은 OllamaEmbeddingAutoConfiguration  사용하지 않음, 대신  OpenAiEmbeddingAutoConfiguration 사용함
 */
 
-//@SpringBootApplication(exclude = {
-//		OllamaChatAutoConfiguration.class,
-//		OllamaEmbeddingAutoConfiguration.class
-//})
+@SpringBootApplication(exclude = {
+		OllamaChatAutoConfiguration.class,
+		OllamaEmbeddingAutoConfiguration.class
+})
 public class GroqApplication {
 	@Autowired
 	Environment env;
