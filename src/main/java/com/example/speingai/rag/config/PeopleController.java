@@ -57,6 +57,8 @@ public class PeopleController {
         var outputConverter = new BeanOutputConverter<>(Person.class);
         System.out.println("BeanOutputConverter 의 getJsonSchema()");
         System.out.println(outputConverter.getJsonSchema());
+        System.out.println("BeanOutputConverter 의 getFormat()");
+        System.out.println(outputConverter.getFormat());
 
         PromptTemplate userMessagePromptTemplate = new PromptTemplate("""
                 Tell me about {name} as if current date is {current_date}.
@@ -75,7 +77,7 @@ public class PeopleController {
         var prompt = new Prompt(List.of(systemMessage, userMessage));
 
         try {
-              var response = chatClient.prompt(prompt).call().content();
+            var response = chatClient.prompt(prompt).call().content();
             System.out.println("변환 전 원시 응답: " + response);
             Person person = outputConverter.convert(response);
             System.out.println("변환된 Person 객체: " + person);
